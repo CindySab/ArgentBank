@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import User from "./pages/User";
 import Footer from "./components/Footer/Footer";
+import MainNav from "./components/MainNav/MainNav";
 
 const App = () => {
     return (
         <BrowserRouter>
             <div>
+                <MainNav />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/signIn" element={<SignIn />} />
