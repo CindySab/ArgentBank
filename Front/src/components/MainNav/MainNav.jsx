@@ -5,15 +5,13 @@ import logo from "../../img/argentBankLogo.png";
 const MainNav = () => {
     return (
         <nav className="main-nav">
-            <Link to="/">
-                <a className="main-nav-logo">
-                    <img
-                        className="main-nav-logo-image"
-                        src={logo}
-                        alt="Argent Bank Logo"
-                    />
-                    <h1 className="sr-only">Argent Bank</h1>
-                </a>
+            <Link to="/" className="main-nav-logo">
+                <img
+                    className="main-nav-logo-image"
+                    src={logo}
+                    alt="Argent Bank Logo"
+                />
+                <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
                 <Link to="/signIn" className="main-nav-item">
