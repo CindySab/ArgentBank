@@ -6,6 +6,11 @@ import User from "./pages/User";
 import Footer from "./components/Footer/Footer";
 import MainNav from "./components/MainNav/MainNav";
 
+/*
+ * Main component of the application, defining the routing and layout structure.
+ * @returns {JSX.Element} The root element of the application.
+ */
+
 const App = () => {
     return (
         <BrowserRouter>

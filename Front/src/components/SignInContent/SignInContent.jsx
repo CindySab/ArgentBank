@@ -4,6 +4,14 @@ import { loginUser } from "../Redux/actions/login.action";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
+/*
+ * Component for the sign-in page content.
+ * @param {Object} props - The properties passed to the component.
+ * @param {Function} props.loginUser - Function to log in the user.
+ * @param {boolean} props.isAuthenticated - Indicates if the user is authenticated or not.
+ * @returns {JSX.Element} Sign-in page content.
+ */
+
 const SignInContent = ({ loginUser, isAuthenticated }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +22,11 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
             Navigate("/user");
         }
     }, [isAuthenticated, Navigate]);
+
+    /*
+     * Function to submit the sign-in form.
+     * @param {Object} e - The form submission event.
+     */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -59,15 +72,18 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
     );
 };
 
+// Specifies the types of properties expected by the component
 SignInContent.propTypes = {
     loginUser: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
 };
 
+// Connects the component to the Redux store and maps required properties from the Redux state
 const mapStateToProps = (state) => ({
     isAuthenticated: state.loginReducer.isAuthenticated,
 });
 
+// Connects Redux actions to the component
 const mapDispatchToProps = {
     loginUser,
 };

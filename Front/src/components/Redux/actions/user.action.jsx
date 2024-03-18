@@ -1,5 +1,11 @@
 import axios from "axios";
 
+/*
+ * Function to fetch user profile data from the server.
+ * @param {string} token - User authentication token.
+ * @returns {Function} A function that dispatches actions.
+ */
+
 export const userProfil = (token) => async (dispatch) => {
     try {
         const config = {
@@ -16,7 +22,7 @@ export const userProfil = (token) => async (dispatch) => {
         );
         console.log("Response:", response);
 
-        // Vérification de la structure de la réponse
+        // Checking the structure of the response
         if (response.data && response.data.body) {
             const { firstName, lastName } = response.data.body;
 
@@ -25,8 +31,8 @@ export const userProfil = (token) => async (dispatch) => {
                 payload: { firstName, lastName, token },
             });
         } else if (response.data) {
-            // Si response.data est défini mais response.data.body ne l'est pas
-            // Vous pouvez accéder directement à response.data ici
+            // If response.data is defined but response.data.body is not
+            // You can directly access response.data here
             const { firstName, lastName } = response.data;
 
             dispatch({

@@ -6,6 +6,17 @@ import { userProfil } from "../Redux/actions/user.action"; // Importer l'action 
 import logo from "../../img/argentBankLogo.png";
 import PropTypes from "prop-types";
 
+/*
+ * Component for the main navigation bar.
+ * @param {Object} props - The properties passed to the component.
+ * @param {boolean} props.isAuthenticated - Indicates if the user is authenticated or not.
+ * @param {Function} props.logout - Function to log out the user.
+ * @param {Function} props.fetchUserProfile - Function to fetch user profile data.
+ * @param {string} props.token - User authentication token.
+ * @param {string} props.firstName - User's first name.
+ * @returns {JSX.Element} Main navigation bar.
+ */
+
 const MainNav = ({
     isAuthenticated,
     logout,

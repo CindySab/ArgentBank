@@ -1,5 +1,13 @@
 import axios from "axios";
 
+/*
+ * Function to authenticate user login.
+ * @param {Object} userData - User login credentials.
+ * @param {string} userData.email - User's email address.
+ * @param {string} userData.password - User's password.
+ * @returns {Function} A function that dispatches actions.
+ */
+
 export const loginUser = (userData) => async (dispatch) => {
     try {
         const res = await axios.post(
