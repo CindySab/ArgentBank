@@ -20,7 +20,6 @@ export const userProfil = (token) => async (dispatch) => {
             {},
             config
         );
-        console.log("Response:", response);
 
         // Checking the structure of the response
         if (response.data && response.data.body) {

@@ -21,9 +21,15 @@ export const loginUser = (userData) => async (dispatch) => {
             payload: token,
         });
     } catch (err) {
-        dispatch({
-            type: "LOGIN_FAIL",
-            payload: err.response.data.message,
-        });
+        if (err.response && err.response.status === 400) {
+            throw new Error("Invalid email or password");
+        } else {
+            dispatch({
+                type: "LOGIN_FAIL",
+                payload: err.response
+                    ? err.response.data.message
+                    : "Unknown error",
+            });
+        }
     }
 };

@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import User from "./pages/User";
 import Footer from "./components/Footer/Footer";
 import MainNav from "./components/MainNav/MainNav";
+import AuthGuard from "./components/AuthGuard.jsx/AuthGuard";
 
 /*
  * Main component of the application, defining the routing and layout structure.
@@ -19,7 +20,14 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/signIn" element={<SignIn />} />
-                    <Route path="/user" element={<User />} />
+                    <Route
+                        path="/user"
+                        element={
+                            <AuthGuard>
+                                <User />
+                            </AuthGuard>
+                        }
+                    />
                     <Route path="*" element={<Home />} />
                 </Routes>
                 <Footer />

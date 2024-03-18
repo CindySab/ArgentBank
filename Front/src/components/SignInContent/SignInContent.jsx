@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 const SignInContent = ({ loginUser, isAuthenticated }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loginError, setLoginError] = useState("");
+
     const Navigate = useNavigate();
 
     useEffect(() => {
@@ -23,24 +25,43 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
         }
     }, [isAuthenticated, Navigate]);
 
-    /*
-     * Function to submit the sign-in form.
-     * @param {Object} e - The form submission event.
-     */
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        setLoginError("");
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setLoginError("");
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userData = {
-            email: email,
-            password: password,
-        };
-        await loginUser(userData);
+        setLoginError("");
+
+        if (!email.trim() || !password.trim()) {
+            setLoginError("Invalid email or password");
+            return;
+        }
+
+        const userData = { email, password };
+
+        try {
+            await loginUser(userData);
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+                setLoginError("Invalid email or password");
+            } else {
+                setLoginError("Invalid email or password");
+            }
+        }
     };
 
     return (
         <section className="sign-in-content">
             <i className="fa fa-user-circle sign-in-icon"></i>
             <h1>Sign In</h1>
+            <span className="error-message">{loginError}</span>
             <form onSubmit={handleSubmit}>
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
@@ -48,7 +69,7 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
                         type="email"
                         id="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={handleEmailChange}
                     />
                 </div>
                 <div className="input-wrapper">
@@ -57,7 +78,7 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
                         type="password"
                         id="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={handlePasswordChange}
                     />
                 </div>
                 <div className="input-remember">

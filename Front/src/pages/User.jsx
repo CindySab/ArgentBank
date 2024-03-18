@@ -5,11 +5,9 @@ import Account from "../components/Account/Account";
 const User = () => {
     return (
         <main className="main bg-dark">
-            <Header></Header>
+            <Header />
             <h2 className="sr-only">Accounts</h2>
-            <section className="account">
-                <Account></Account>
-            </section>
+            <Account></Account>
         </main>
     );
 };
