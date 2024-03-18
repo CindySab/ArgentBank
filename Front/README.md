@@ -27,6 +27,7 @@ node --version
 
 # Check MongoDB version
 mongo --version
+```
 
 Once you have verified the correct versions, follow these steps to install and run the ArgentBank backend:
 
@@ -44,6 +45,7 @@ npm run dev:server
 
 # Populate database with two users
 npm run populate-db
+```
 
 Your server should now be running at http://localhost:3001, and you will now have two users in your MongoDB database!
 
@@ -64,16 +66,19 @@ Follow these steps to install and run the ArgentBank frontend:
 
 ```bash
 cd frontend
+```
 
 1. **Install dependencies:**
 
 ```bash
 npm install
+```
 
 2. **Once the installation is complete, start the local development server:**
 
 ```bash
 npm start
+```
 
 Open your browser and go to the following URL: http://localhost:3000 to interact with the ArgentBank application.
 ````
