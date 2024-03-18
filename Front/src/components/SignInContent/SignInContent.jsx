@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../Redux/actions/login.action";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const SignInContent = ({ loginUser, error }) => {
+const SignInContent = ({ loginUser, isAuthenticated }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const Navigate = useNavigate();
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            Navigate("/user");
+        }
+    }, [isAuthenticated, Navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,17 +22,12 @@ const SignInContent = ({ loginUser, error }) => {
             password: password,
         };
         await loginUser(userData);
-
-        if (!error) {
-            Navigate("/user");
-        }
     };
 
     return (
         <section className="sign-in-content">
             <i className="fa fa-user-circle sign-in-icon"></i>
             <h1>Sign In</h1>
-            {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="input-wrapper">
                     <label htmlFor="email">Email</label>
@@ -46,6 +47,10 @@ const SignInContent = ({ loginUser, error }) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
+                <div className="input-remember">
+                    <input type="checkbox" id="remember-me" />
+                    <label htmlFor="remember-me">Remember me</label>
+                </div>
                 <button type="submit" className="sign-in-button">
                     Sign In
                 </button>
@@ -56,11 +61,11 @@ const SignInContent = ({ loginUser, error }) => {
 
 SignInContent.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    error: PropTypes.string, // Vous pouvez ajuster le type en fonction de votre implémentation
+    isAuthenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    error: state.loginReducer.error,
+    isAuthenticated: state.loginReducer.isAuthenticated,
 });
 
 const mapDispatchToProps = {

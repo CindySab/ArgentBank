@@ -26,3 +26,9 @@ body {
     width: 1px !important;
     white-space: nowrap !important; /* 3 */
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

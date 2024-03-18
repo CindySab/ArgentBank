@@ -7,6 +7,7 @@ export const loginUser = (userData) => async (dispatch) => {
             userData
         );
         const token = res.data.body.token;
+
         dispatch({
             type: "LOGIN_SUCCESS",
             payload: token,
