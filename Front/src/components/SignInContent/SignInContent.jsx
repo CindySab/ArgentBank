@@ -21,7 +21,7 @@ const SignInContent = ({ loginUser, isAuthenticated }) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            Navigate("/user");
+            Navigate("/profile");
         }
     }, [isAuthenticated, Navigate]);
 

@@ -1,7 +1,7 @@
 import React from "react";
-import iconChat from "../../img/icon-chat.png";
-import iconMoney from "../../img/icon-money.png";
-import iconSecurity from "../../img/icon-security.png";
+import iconChat from "../../img/icon-chat-min.png";
+import iconMoney from "../../img/icon-money-min.png";
+import iconSecurity from "../../img/icon-security-min.png";
 
 const Features = () => {
     return (

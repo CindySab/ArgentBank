@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../Redux/actions/logout.action";
 import { userProfil } from "../Redux/actions/user.action"; // Importer l'action userProfil
-import logo from "../../img/argentBankLogo.png";
+import logo from "../../img/argentBankLogo-min.png";
 import PropTypes from "prop-types";
 
 /*
@@ -50,7 +50,7 @@ const MainNav = ({
             <div>
                 {isAuthenticated ? (
                     <div>
-                        <Link to="/user" className="main-nav-item">
+                        <Link to="/profile" className="main-nav-item">
                             <i className="fa fa-user-circle"></i>
                             {firstName}
                         </Link>

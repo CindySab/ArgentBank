@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
-import User from "./pages/User";
+import User from "./pages/Profile";
 import Footer from "./components/Footer/Footer";
 import MainNav from "./components/MainNav/MainNav";
 import AuthGuard from "./components/AuthGuard.jsx/AuthGuard";
@@ -21,7 +21,7 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/signIn" element={<SignIn />} />
                     <Route
-                        path="/user"
+                        path="/profile"
                         element={
                             <AuthGuard>
                                 <User />

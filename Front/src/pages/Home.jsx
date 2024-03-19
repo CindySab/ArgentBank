@@ -5,8 +5,8 @@ import Features from "../components/Features/Features";
 const Home = () => {
     return (
         <div>
-            <Hero></Hero>
-            <Features></Features>
+            <Hero />
+            <Features />
         </div>
     );
 };
