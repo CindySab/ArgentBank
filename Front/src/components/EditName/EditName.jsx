@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { editUsername } from "../Redux/actions/editName.action";
 
@@ -27,6 +27,8 @@ const EditName = ({
     const [newUsername, setNewUsername] = useState(username || "");
     const [errorMessage, setErrorMessage] = useState("");
 
+    const dispatch = useDispatch();
+
     const handleUsernameChange = (e) => {
         setNewUsername(e.target.value);
         // Réinitialise le message d'erreur dès que l'utilisateur commence à écrire dans la case du nom d'utilisateur
@@ -37,6 +39,10 @@ const EditName = ({
         e.preventDefault();
         if (newUsername.trim() !== "") {
             editUsername(newUsername, token);
+            dispatch({
+                type: "EDIT_USERNAME_SUCCESS",
+                payload: { userName: newUsername },
+            });
             setEditing(false);
         } else {
             setErrorMessage("Username cannot be empty");

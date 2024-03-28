@@ -22,7 +22,7 @@ const MainNav = ({
     logout,
     fetchUserProfile,
     token,
-    firstName,
+    userName,
 }) => {
     const handleSignOut = () => {
         logout();
@@ -52,7 +52,7 @@ const MainNav = ({
                     <div>
                         <Link to="/profile" className="main-nav-item">
                             <i className="fa fa-user-circle"></i>
-                            {firstName}
+                            {userName}
                         </Link>
                         <Link
                             to="/"
@@ -79,13 +79,13 @@ MainNav.propTypes = {
     logout: PropTypes.func.isRequired,
     fetchUserProfile: PropTypes.func.isRequired,
     token: PropTypes.string,
-    firstName: PropTypes.string,
+    userName: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.loginReducer.isAuthenticated,
     token: state.loginReducer.token,
-    firstName: state.userReducer.firstName,
+    userName: state.editNameReducer.userName,
 });
 
 const mapDispatchToProps = {

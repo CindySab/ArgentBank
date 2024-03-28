@@ -12,7 +12,7 @@ const initialState = {
     isAuthenticated: false,
     firstName: "",
     lastName: "",
-    username: "",
+    userName: "",
     error: null,
 };
 
@@ -31,6 +31,7 @@ const userReducer = (state = initialState, action) => {
                 isAuthenticated: true,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
+                userName: action.payload.userName,
                 error: null,
             };
         case "USER_PROFIL_FAIL":
@@ -42,7 +43,7 @@ const userReducer = (state = initialState, action) => {
         case "EDIT_USERNAME_SUCCESS":
             return {
                 ...state,
-                username: action.payload,
+                userName: action.payload.userName,
             };
         case "EDIT_USERNAME_FAIL":
             return {
@@ -55,7 +56,7 @@ const userReducer = (state = initialState, action) => {
                 isAuthenticated: false,
                 firstName: "",
                 lastName: "",
-                username: "",
+                userName: "",
             };
         default:
             return state;

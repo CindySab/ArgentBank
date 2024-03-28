@@ -23,20 +23,20 @@ export const userProfil = (token) => async (dispatch) => {
 
         // Checking the structure of the response
         if (response.data && response.data.body) {
-            const { firstName, lastName } = response.data.body;
+            const { firstName, lastName, userName } = response.data.body;
 
             dispatch({
                 type: "USER_PROFIL_SUCCESS",
-                payload: { firstName, lastName, token },
+                payload: { firstName, lastName, userName, token },
             });
         } else if (response.data) {
             // If response.data is defined but response.data.body is not
             // You can directly access response.data here
-            const { firstName, lastName } = response.data;
+            const { firstName, lastName, userName } = response.data;
 
             dispatch({
                 type: "USER_PROFIL_SUCCESS",
-                payload: { firstName, lastName, token },
+                payload: { firstName, lastName, userName, token },
             });
         } else {
             dispatch({

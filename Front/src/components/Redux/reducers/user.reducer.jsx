@@ -11,6 +11,7 @@ const initialState = {
     isAuthenticated: false,
     firstName: "",
     lastName: "",
+    userName: "",
     error: null,
 };
 
@@ -29,6 +30,7 @@ const userReducer = (state = initialState, action) => {
                 isAuthenticated: true,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
+                userName: action.payload.userName,
                 error: null,
             };
         case "USER_PROFIL_FAIL":
@@ -43,6 +45,7 @@ const userReducer = (state = initialState, action) => {
                 isAuthenticated: false,
                 firstName: "",
                 lastName: "",
+                userName: "",
             };
         default:
             return state;
