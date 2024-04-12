@@ -131,7 +131,7 @@ paths:
           description: unknown account
         '500':
           description: Internal Server Error
-  /user/profile/{accountId}/transactions/{transactionId}:
+  /user/profile/{accountId}/transaction/{transactionId}:
     get:
       security:
         - Bearer: []
@@ -166,6 +166,7 @@ paths:
           description: unknown transaction
         '500':
           description: Internal Server Error
+  /user/profile/{accountId}/transactiondetails/{transactionId}:
     put:
       security:
         - Bearer: []
@@ -317,6 +318,12 @@ definitions:
         description: Type of transaction
       category:
         type: string
+        enum:
+          - Food
+          - Clothes
+          - Charges
+          - Equipment
+          - Other
         description: Category of the transaction
       note:
         type: string

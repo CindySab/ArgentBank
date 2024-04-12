@@ -31,7 +31,6 @@ const EditName = ({
 
     const handleUsernameChange = (e) => {
         setNewUsername(e.target.value);
-        // Réinitialise le message d'erreur dès que l'utilisateur commence à écrire dans la case du nom d'utilisateur
         setErrorMessage("");
     };
 

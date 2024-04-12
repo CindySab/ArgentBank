@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../Redux/actions/logout.action";
-import { userProfil } from "../Redux/actions/user.action"; // Importer l'action userProfil
+import { userProfil } from "../Redux/actions/user.action";
 import logo from "../../img/argentBankLogo-min.png";
 import PropTypes from "prop-types";
 
